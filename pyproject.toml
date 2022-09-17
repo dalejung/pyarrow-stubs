@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "pyarrow-stubs"
+version = "0.1"
+description = "Type annotations for pyarrow"
+packages = [
+    { "include" = "pyarrow-stubs"}
+]
+
+[tool.pyright]
+typeCheckingMode = "strict"
+stubPath = "."
+include = ["pyarrow-stubs"]
+# disable subset of strict
+reportIncompleteStub = false
+reportInconsistentConstructor = false
+reportMissingParameterType = false
+reportMissingTypeArgument = false
+reportMissingTypeStubs = false
+reportUnknownArgumentType = false
+reportUnusedExpression = false
+reportUnknownLambdaType = false
+reportUnknownMemberType = false
+reportUnknownParameterType = false
+reportUnknownVariableType = false
+reportUntypedBaseClass = false
+reportUnusedVariable = false
+reportPrivateUsage = false
+# enable optional checks
+reportMissingModuleSource = true
