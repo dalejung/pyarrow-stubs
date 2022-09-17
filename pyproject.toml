@@ -29,5 +29,6 @@ reportUnknownVariableType = false
 reportUntypedBaseClass = false
 reportUnusedVariable = false
 reportPrivateUsage = false
+reportInvalidStubStatement = false
 # enable optional checks
 reportMissingModuleSource = true

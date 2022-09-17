@@ -1,10 +1,15 @@
-from pyarrow_stubs_ext import PaArrayT, PaDataT
+# pyright: reportInvalidStubStatement = false
+from pyarrow_stubs_ext import (
+    PaArrayT,
+    PaDataT,
+    PaArray,
+    StructArrayOrChunk,
+)
 from .struct import (
     StructArray as StructArray,
 )
 from .array import (
     ChunkedArray as ChunkedArray,
-    ChunkedArrayT as ChunkedArrayT,
 )
 
 _OptionsClassDoc = ...
@@ -1926,13 +1931,13 @@ def equal(x, y, /, *, memory_pool=None):
 
 
 def extract_regex(
-    strings: PaArrayT,
+    strings: PaArray,
     /,
     pattern,
     *,
     options=None,
     memory_pool=None
-) -> StructArrayT:
+) -> StructArray:
     """
     Extract substrings captured by a regex pattern.
 
@@ -4465,13 +4470,13 @@ def strptime(strings, /, format, unit, error_is_null=False, *, options=None, mem
 
 
 def struct_field(
-    values: StructArrayT,
+    values: StructArrayOrChunk,
     /,
     indices,
     *,
     options=None,
     memory_pool=None
-) -> PaArrayT:
+) -> PaArray:
     """
     Extract children of a struct or union by index.
 

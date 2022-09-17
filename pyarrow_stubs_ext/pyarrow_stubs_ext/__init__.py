@@ -4,6 +4,7 @@ from .pa_array_types import (
     PaArray as PaArray,
     PaDataT as PaDataT,
     PaArrayT as PaArrayT,
+    StructArrayOrChunk as StructArrayOrChunk,
 )
 from .array_common import (
     ChunkedArrayT as ChunkedArrayT,
