@@ -5,20 +5,20 @@ class _Weakrefable():
 class _PandasConvertible(_Weakrefable):
     def to_pandas(
         self,
-        memory_pool=None,
-            categories=None,
-            strings_to_categorical=False,
-            zero_copy_only=False,
-            integer_object_nulls=False,
-            date_as_object=True,
-            timestamp_as_object=False,
-            use_threads=True,
-            eduplicate_objects=True,
-            ignore_metadata=False,
-            safe=True,
-            split_blocks=False,
-            self_destruct=False,
-            types_mapper=None
+        memory_pool=...,
+            categories=...,
+            strings_to_categorical=...,
+            zero_copy_only=...,
+            integer_object_nulls=...,
+            date_as_object=...,
+            timestamp_as_object=...,
+            use_threads=...,
+            eduplicate_objects=...,
+            ignore_metadata=...,
+            safe=...,
+            split_blocks=...,
+            self_destruct=...,
+            types_mapper=...
     ):
         ...
 

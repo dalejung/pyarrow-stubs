@@ -1,12 +1,7 @@
-from typing import (
-    TypeVar,
+from .pa_array_types import (
+    PaDataT as PaDataT,
+    PaArrayT as PaArrayT
 )
-
-import pyarrow as pa
-
-
-PaDataT = TypeVar('PaDataT', bound=pa.Array | pa.ChunkedArray | pa.Table)
-PaArrayT = TypeVar('PaArrayT', bound=pa.Array | pa.ChunkedArray)
 
 
 class CommonArray:

@@ -1,7 +1,7 @@
 from .lib import (
     _PandasConvertible as _PandasConvertible
 )
-from pyarrow_stubs_ext.array_common import (
+from pyarrow_stubs_ext import (
     CommonArray,
     ChunkedArrayT,
 )
