@@ -2,14 +2,18 @@
 name = "pyarrow-stubs"
 version = "0.1"
 description = "Type annotations for pyarrow"
+authors = ["Dale Jung <dale@dalejung.com>"]
 packages = [
     { "include" = "pyarrow-stubs"}
 ]
 
+[tool.poetry.dependencies]
+pyarrow_stubs_ext = { path = "./pyarrow_stubs_ext", develop = true}
+
 [tool.pyright]
 typeCheckingMode = "strict"
-stubPath = "."
 include = ["pyarrow-stubs"]
+
 # disable subset of strict
 reportIncompleteStub = false
 reportInconsistentConstructor = false

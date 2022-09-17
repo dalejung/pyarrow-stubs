@@ -1,0 +1,12 @@
+[tool.poetry]
+name = "pyarrow_stubs_ext"
+version = "0.1"
+description = "pyarrow stub extensions"
+packages = [
+    { "include" = "pyarrow_stubs_ext"}
+]
+authors = ["Dale Jung <dale@dalejung.com>"]
+
+[tool.pyright]
+typeCheckingMode = "strict"
+include = ["pyarrow_stubs_ext"]
