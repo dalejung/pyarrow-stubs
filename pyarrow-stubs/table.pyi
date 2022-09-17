@@ -1,13 +1,13 @@
 from __future__ import annotations
 import pandas as pd
 
+from pyarrow_stubs_ext import PaArray
 from .lib import (
     _Weakrefable as _Weakrefable,
     _PandasConvertible as _PandasConvertible
 )
 from .schema import Schema
 from .field import Field
-from .array import PaArray
 
 
 class Table(_PandasConvertible):
@@ -129,7 +129,7 @@ class Table(_PandasConvertible):
     def __len__(self) -> int:
         ...
 
-    def filter(self, mask, null_selection_behavior=None) -> Table:
+    def filter(self, mask, null_selection_behavior=...) -> Table:
         ...
 
     def take(self, indices) -> Table:
@@ -145,6 +145,6 @@ class Table(_PandasConvertible):
         ...
 
     @classmethod
-    def from_pandas(cls, df: pd.DataFrame, schema: Schema | None = None, preserve_index=None,
-                    nthreads=None, columns=None, safe=True) -> Table:
+    def from_pandas(cls, df: pd.DataFrame, schema: Schema | None = ..., preserve_index=...,
+                    nthreads=..., columns=..., safe=...) -> Table:
         ...

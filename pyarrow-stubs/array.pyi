@@ -3,7 +3,8 @@ from .lib import (
 )
 from pyarrow_stubs_ext import (
     CommonArray,
-    ChunkedArrayT,
+    ChunkedArrayT as ChunkedArrayT,
+    PaArrayT as PaArrayT,
 )
 
 

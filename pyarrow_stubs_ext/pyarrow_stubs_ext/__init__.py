@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING
 
 from .pa_array_types import (
+    PaArray as PaArray,
     PaDataT as PaDataT,
     PaArrayT as PaArrayT,
 )

@@ -3,5 +3,7 @@ from typing import (
 )
 import pyarrow as pa
 
-PaDataT = TypeVar('PaDataT', bound=pa.Array | pa.ChunkedArray | pa.Table)
-PaArrayT = TypeVar('PaArrayT', bound=pa.Array | pa.ChunkedArray)
+PaArray = pa.Array | pa.ChunkedArray
+
+PaDataT = TypeVar('PaDataT', bound=PaArray | pa.Table)
+PaArrayT = TypeVar('PaArrayT', bound=PaArray)
