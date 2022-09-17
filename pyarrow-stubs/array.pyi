@@ -1,34 +1,10 @@
-import numpy as np
-from typing import TypeVar, Generic
-from typing_extensions import Self
-
 from .lib import (
-    _Weakrefable as _Weakrefable,
     _PandasConvertible as _PandasConvertible
 )
-
-
-T = TypeVar('T')
-
-
-class CommonArray:
-    def __array__(self) -> np.ndarray:
-        ...
-
-    def __iter__(self):
-        ...
-
-    def to_pylist(self) -> list:
-        ...
-
-    def to_numpy(self, zero_copy_only=..., writable=...) -> np.ndarray:
-        ...
-
-    def __getitem__(self, k):
-        ...
-
-    def fill_null(self, fill_value) -> Self:
-        ...
+from pyarrow_stubs_ext.array_common import (
+    CommonArray,
+    ChunkedArrayT,
+)
 
 
 class Array(_PandasConvertible, CommonArray):
@@ -40,13 +16,7 @@ class Array(_PandasConvertible, CommonArray):
     ...
 
 
-class ChunkedArrayT(_PandasConvertible, CommonArray, Generic[T]):
-    chunks: list[T]
-
-    def combine_chunks(self) -> T:
-        ...
-
-
+# Default to Array. Anything else needs to use ChunkedArrayT
 class ChunkedArray(ChunkedArrayT[Array]):
     """
     ChunkedArray()

@@ -10,3 +10,21 @@ authors = ["Dale Jung <dale@dalejung.com>"]
 [tool.pyright]
 typeCheckingMode = "strict"
 include = ["pyarrow_stubs_ext"]
+
+# disable subset of strict
+reportIncompleteStub = false
+reportInconsistentConstructor = false
+reportMissingParameterType = false
+reportMissingTypeArgument = false
+reportMissingTypeStubs = false
+reportUnknownArgumentType = false
+reportUnusedExpression = false
+reportUnknownLambdaType = false
+reportUnknownMemberType = false
+reportUnknownParameterType = false
+reportUnknownVariableType = false
+reportUntypedBaseClass = false
+reportUnusedVariable = false
+reportPrivateUsage = false
+# enable optional checks
+reportMissingModuleSource = true
