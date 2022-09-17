@@ -21,7 +21,7 @@ class CommonArray:
     def to_pylist(self) -> list:
         ...
 
-    def to_numpy(self, zero_copy_only=True, writable=False) -> np.ndarray:
+    def to_numpy(self, zero_copy_only=..., writable=...) -> np.ndarray:
         ...
 
     def __getitem__(self, k):

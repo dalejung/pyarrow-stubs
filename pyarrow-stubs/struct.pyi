@@ -1,4 +1,4 @@
-from .array import Array, ChunkedArrayT
+from .array import Array
 
 
 class StructArray(Array):

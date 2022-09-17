@@ -1,11 +1,10 @@
-from stc.tools import PaArrayT, PaDataT
+from pyarrow_stubs_ext import PaArrayT, PaDataT
 from .struct import (
-    StructArray,
-    StructArrayT,
+    StructArray as StructArray,
 )
 from .array import (
-    ChunkedArray,
-    ChunkedArrayT,
+    ChunkedArray as ChunkedArray,
+    ChunkedArrayT as ChunkedArrayT,
 )
 
 _OptionsClassDoc = ...
