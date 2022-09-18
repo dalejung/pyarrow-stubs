@@ -19,6 +19,10 @@ class FunctionOptions:
     ...
 
 
+class CastOptions(FunctionOptions):
+    ...
+
+
 def fill_null(values: PaDataT, fill_value) -> PaDataT:
     """
     Replace each null element in values with fill_value. The fill_value must be

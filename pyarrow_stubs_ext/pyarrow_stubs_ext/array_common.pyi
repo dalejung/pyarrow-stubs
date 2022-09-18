@@ -5,6 +5,8 @@ import numpy as np
 from pyarrow.lib import (
     _PandasConvertible as _PandasConvertible
 )
+import pyarrow as pa
+import pyarrow.compute as pa_pc
 
 T = TypeVar('T')
 
@@ -26,6 +28,14 @@ class CommonArray:
         ...
 
     def fill_null(self, fill_value) -> Self:
+        ...
+
+    def cast(
+        self,
+        target_type: pa.DataType = ...,
+        safe: bool = ...,
+        options: pa_pc.CastOptions = ...
+    ) -> Self:
         ...
 
 
