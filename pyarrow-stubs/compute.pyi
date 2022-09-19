@@ -256,7 +256,7 @@ def acos_checked(x, /, *, memory_pool=None):
     """
 
 
-def add(x, y, /, *, memory_pool=None):
+def add(x: PaArrayT, y, /, *, memory_pool=None) -> PaArrayT:
     """
     Add the arguments element-wise.
 
@@ -1831,7 +1831,7 @@ def dictionary_encode(array, /, null_encoding='mask', *, options=None, memory_po
     """
 
 
-def divide(dividend, divisor, /, *, memory_pool=None):
+def divide(dividend: PaArrayT, divisor, /, *, memory_pool=None) -> PaArrayT:
     """
     Divide the arguments element-wise.
 
