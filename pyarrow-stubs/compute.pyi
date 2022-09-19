@@ -340,7 +340,7 @@ def and_(x: PaArrayT, y: PaArrayT, /, *, memory_pool=None) -> PaArrayT:
     """
 
 
-def and_kleene(x, y, /, *, memory_pool=None):
+def and_kleene(x: PaArrayT, y: PaArrayT, /, *, memory_pool=None) -> PaArrayT:
     """
     Logical 'and' boolean values (Kleene logic).
 
