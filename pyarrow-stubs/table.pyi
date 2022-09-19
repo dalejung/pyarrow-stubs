@@ -148,3 +148,6 @@ class Table(_PandasConvertible):
     def from_pandas(cls, df: pd.DataFrame, schema: Schema | None = ..., preserve_index=...,
                     nthreads=..., columns=..., safe=...) -> Table:
         ...
+
+    def to_pylist(self) -> list[dict]:
+        ...
