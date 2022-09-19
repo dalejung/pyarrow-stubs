@@ -618,13 +618,6 @@ class Time64Type(DataType):
     ...
 
 
-class LargeBinaryArray(Array):
-    """
-    Concrete class for Arrow arrays of large variable-sized binary data type.
-    """
-    ...
-
-
 class _RecordBatchStreamReader(RecordBatchReader):
     ...
 
@@ -685,13 +678,6 @@ class OSFile(NativeFile):
     ...
 
 
-class ExtensionArray(Array):
-    """
-    Concrete class for Arrow extension arrays.
-    """
-    ...
-
-
 class BufferedOutputStream(NativeFile):
     """
     BufferedOutputStream(NativeFile stream, int buffer_size, MemoryPool memory_pool=None)
@@ -726,13 +712,6 @@ class DoubleScalar(Scalar):
     ...
 
 
-class DictionaryArray(Array):
-    """
-    Concrete class for dictionary-encoded Arrow arrays.
-    """
-    ...
-
-
 class _RecordBatchStreamWriter(_CRecordBatchWriter):
     ...
 
@@ -751,13 +730,6 @@ class DeserializationCallbackError(ArrowSerializationError):
 class HalfFloatScalar(Scalar):
     """
     Concrete class for float scalars.
-    """
-    ...
-
-
-class UnionArray(Array):
-    """
-    Concrete class for Arrow arrays of a Union data type.
     """
     ...
 
@@ -831,13 +803,6 @@ class TransformInputStream(NativeFile):
 class DictionaryScalar(Scalar):
     """
     Concrete class for dictionary-encoded scalars.
-    """
-    ...
-
-
-class MonthDayNanoIntervalArray(Array):
-    """
-    Concrete class for Arrow arrays of interval[MonthDayNano] type.
     """
     ...
 
@@ -917,13 +882,6 @@ class BufferOutputStream(NativeFile):
     ...
 
 
-class LargeStringArray(Array):
-    """
-    Concrete class for Arrow arrays of large string (or utf8) data type.
-    """
-    ...
-
-
 class Int64Scalar(Scalar):
     """
     Concrete class for int64 scalars.
@@ -945,55 +903,9 @@ class Int16Scalar(Scalar):
     ...
 
 
-class FixedSizeListArray(Array):
-    """
-    Concrete class for Arrow arrays of a fixed size list data type.
-    """
-    ...
-
-
-class NumericArray(Array):
-    """
-    A base class for Arrow numeric arrays.
-    """
-    ...
-
-
-class FixedSizeBinaryArray(Array):
-    """
-    Concrete class for Arrow arrays of a fixed-size binary data type.
-    """
-    ...
-
-
-class FloatingPointArray(NumericArray):
-    """
-    A base class for Arrow floating-point arrays.
-    """
-    ...
-
-
 class Date64Scalar(Scalar):
     """
     Concrete class for date64 scalars.
-    """
-    ...
-
-
-class BaseListArray(Array):
-    ...
-
-
-class Decimal256Array(FixedSizeBinaryArray):
-    """
-    Concrete class for Arrow arrays of decimal256 data type.
-    """
-    ...
-
-
-class BooleanArray(Array):
-    """
-    Concrete class for Arrow arrays of boolean data type.
     """
     ...
 
@@ -1091,44 +1003,9 @@ class RecordBatch(_PandasConvertible):
     ...
 
 
-class StringArray(Array):
-    """
-    Concrete class for Arrow arrays of string (or utf8) data type.
-    """
-    ...
-
-
-class Date64Array(NumericArray):
-    """
-    Concrete class for Arrow arrays of date64 data type.
-    """
-    ...
-
-
-class NullArray(Array):
-    """
-    Concrete class for Arrow arrays of null data type.
-    """
-    ...
-
-
-class BinaryArray(Array):
-    """
-    Concrete class for Arrow arrays of variable-sized binary data type.
-    """
-    ...
-
-
 class Int32Scalar(Scalar):
     """
     Concrete class for int32 scalars.
-    """
-    ...
-
-
-class TimestampArray(NumericArray):
-    """
-    Concrete class for Arrow arrays of timestamp data type.
     """
     ...
 
@@ -1172,13 +1049,6 @@ class ListScalar(Scalar):
     ...
 
 
-class DoubleArray(FloatingPointArray):
-    """
-    Concrete class for Arrow arrays of float64 data type.
-    """
-    ...
-
-
 class ExtensionType(BaseExtensionType):
     """
     ExtensionType(DataType storage_type, extension_name)
@@ -1203,13 +1073,6 @@ class UInt8Scalar(Scalar):
 class BooleanScalar(Scalar):
     """
     Concrete class for boolean scalars.
-    """
-    ...
-
-
-class Date32Array(NumericArray):
-    """
-    Concrete class for Arrow arrays of date32 data type.
     """
     ...
 
@@ -1243,27 +1106,6 @@ class PyExtensionType(ExtensionType):
     ...
 
 
-class Decimal128Array(FixedSizeBinaryArray):
-    """
-    Concrete class for Arrow arrays of decimal128 data type.
-    """
-    ...
-
-
-class Time64Array(NumericArray):
-    """
-    Concrete class for Arrow arrays of time64 data type.
-    """
-    ...
-
-
-class ListArray(BaseListArray):
-    """
-    Concrete class for Arrow arrays of a list data type.
-    """
-    ...
-
-
 class UnknownExtensionType(PyExtensionType):
     """
     UnknownExtensionType(DataType storage_type, serialized)
@@ -1281,83 +1123,11 @@ class UnknownExtensionType(PyExtensionType):
     ...
 
 
-class HalfFloatArray(FloatingPointArray):
-    """
-    Concrete class for Arrow arrays of float16 data type.
-    """
-    ...
-
-
 class _RecordBatchFileWriter(_RecordBatchStreamWriter):
     ...
 
 
 class FixedSizeListScalar(ListScalar):
-    ...
-
-
-class IntegerArray(NumericArray):
-    """
-    A base class for Arrow integer arrays.
-    """
-    ...
-
-
-class UInt8Array(IntegerArray):
-    """
-    Concrete class for Arrow arrays of uint8 data type.
-    """
-    ...
-
-
-class DurationArray(NumericArray):
-    """
-    Concrete class for Arrow arrays of duration data type.
-    """
-    ...
-
-
-class Int8Array(IntegerArray):
-    """
-    Concrete class for Arrow arrays of int8 data type.
-    """
-    ...
-
-
-class Int64Array(IntegerArray):
-    """
-    Concrete class for Arrow arrays of int64 data type.
-    """
-    ...
-
-
-class LargeListArray(BaseListArray):
-    """
-    Concrete class for Arrow arrays of a large list data type.
-
-        Identical to ListArray, but 64-bit offsets.
-    """
-    ...
-
-
-class UInt64Array(IntegerArray):
-    """
-    Concrete class for Arrow arrays of uint64 data type.
-    """
-    ...
-
-
-class Int16Array(IntegerArray):
-    """
-    Concrete class for Arrow arrays of int16 data type.
-    """
-    ...
-
-
-class FloatArray(FloatingPointArray):
-    """
-    Concrete class for Arrow arrays of float32 data type.
-    """
     ...
 
 
@@ -1379,35 +1149,7 @@ class MapScalar(ListScalar):
     ...
 
 
-class Time32Array(NumericArray):
-    """
-    Concrete class for Arrow arrays of time32 data type.
-    """
-    ...
-
-
-class Int32Array(IntegerArray):
-    """
-    Concrete class for Arrow arrays of int32 data type.
-    """
-    ...
-
-
 class LargeListScalar(ListScalar):
-    ...
-
-
-class UInt32Array(IntegerArray):
-    """
-    Concrete class for Arrow arrays of uint32 data type.
-    """
-    ...
-
-
-class UInt16Array(IntegerArray):
-    """
-    Concrete class for Arrow arrays of uint16 data type.
-    """
     ...
 
 
@@ -1416,13 +1158,6 @@ class LargeBinaryScalar(BinaryScalar):
 
 
 class LargeStringScalar(StringScalar):
-    ...
-
-
-class MapArray(ListArray):
-    """
-    Concrete class for Arrow arrays of a map data type.
-    """
     ...
 
 
