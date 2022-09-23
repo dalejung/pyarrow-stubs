@@ -1,6 +1,7 @@
 from __future__ import annotations
 import pandas as pd
 
+from typing_extensions import Self
 from pyarrow_stubs_ext import PaArray
 from .lib import (
     _Weakrefable as _Weakrefable,
@@ -150,4 +151,7 @@ class Table(_PandasConvertible):
         ...
 
     def to_pylist(self) -> list[dict]:
+        ...
+
+    def drop(self, columns: list[str]) -> Self:
         ...
