@@ -38,6 +38,9 @@ class CommonArray:
     ) -> Self:
         ...
 
+    def __len__(self) -> int:
+        ...
+
 
 class ChunkedArrayT(_PandasConvertible, CommonArray, Generic[T]):
     chunks: list[T]
