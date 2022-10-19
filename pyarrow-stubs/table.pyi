@@ -9,6 +9,7 @@ from .lib import (
 )
 from .schema import Schema
 from .field import Field
+from .compute import CastOptions
 
 
 class Table(_PandasConvertible):
@@ -154,4 +155,8 @@ class Table(_PandasConvertible):
         ...
 
     def drop(self, columns: list[str]) -> Self:
+        ...
+
+    def cast(self, schema: Schema, safe: bool = True,
+             options: CastOptions | None = None) -> Table:
         ...
