@@ -7,6 +7,7 @@ from .lib import (
 )
 from .table import (
     Table as Table,
+    TableGroupBy as TableGroupBy,
 )
 from .array import (
     Array as Array,
@@ -206,43 +207,6 @@ class UnionType(DataType):
 class SerializationContext(_Weakrefable):
     """
     SerializationContext()
-    """
-    ...
-
-
-class TableGroupBy():
-    """
-    A grouping of columns in a table on which to perform aggregations.
-
-        Parameters
-        ----------
-        table : pyarrow.Table
-            Input table to execute the aggregation on.
-        keys : str or list[str]
-            Name of the grouped columns.
-
-        Examples
-        --------
-        >>> import pyarrow as pa
-        >>> t = pa.table([
-        ...       pa.array(["a", "a", "b", "b", "c"]),
-        ...       pa.array([1, 2, 3, 4, 5]),
-        ... ], names=["keys", "values"])
-
-        Grouping of columns:
-
-        >>> pa.TableGroupBy(t,"keys")
-        <pyarrow.lib.TableGroupBy object at ...>
-
-        Perform aggregations:
-
-        >>> pa.TableGroupBy(t,"keys").aggregate([("values", "sum")])
-        pyarrow.Table
-        values_sum: int64
-        keys: string
-        ----
-        values_sum: [[3,7,5]]
-        keys: [["a","b","c"]]
     """
     ...
 

@@ -160,3 +160,46 @@ class Table(_PandasConvertible):
     def cast(self, schema: Schema, safe: bool = True,
              options: CastOptions | None = None) -> Table:
         ...
+
+    def slice(self, offset: int = 0, length: int | None = None) -> Table:
+        ...
+
+    def group_by(self, keys: str | list[str]) -> TableGroupBy:
+        ...
+
+
+class TableGroupBy():
+    """
+    A grouping of columns in a table on which to perform aggregations.
+
+        Parameters
+        ----------
+        table : pyarrow.Table
+            Input table to execute the aggregation on.
+        keys : str or list[str]
+            Name of the grouped columns.
+
+        Examples
+        --------
+        >>> import pyarrow as pa
+        >>> t = pa.table([
+        ...       pa.array(["a", "a", "b", "b", "c"]),
+        ...       pa.array([1, 2, 3, 4, 5]),
+        ... ], names=["keys", "values"])
+
+        Grouping of columns:
+
+        >>> pa.TableGroupBy(t,"keys")
+        <pyarrow.lib.TableGroupBy object at ...>
+
+        Perform aggregations:
+
+        >>> pa.TableGroupBy(t,"keys").aggregate([("values", "sum")])
+        pyarrow.Table
+        values_sum: int64
+        keys: string
+        ----
+        values_sum: [[3,7,5]]
+        keys: [["a","b","c"]]
+    """
+    ...
