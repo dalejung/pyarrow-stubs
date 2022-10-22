@@ -146,6 +146,9 @@ class Table(_PandasConvertible):
     def add_column(self, i: int, field_: str | Field, column) -> Table:
         ...
 
+    def append_column(self, field_: str | Field, column) -> Table:
+        ...
+
     @classmethod
     def from_pandas(cls, df: pd.DataFrame, schema: Schema | None = ..., preserve_index=...,
                     nthreads=..., columns=..., safe=...) -> Table:
