@@ -3,7 +3,8 @@ from typing_extensions import Self
 
 import numpy as np
 from pyarrow.lib import (
-    _PandasConvertible as _PandasConvertible
+    _PandasConvertible as _PandasConvertible,
+    DataType,
 )
 import pyarrow as pa
 import pyarrow.compute as pa_pc
@@ -12,6 +13,8 @@ T = TypeVar('T')
 
 
 class CommonArray:
+    type: DataType
+
     def __array__(self) -> np.ndarray:
         ...
 
