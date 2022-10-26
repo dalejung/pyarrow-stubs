@@ -127,6 +127,7 @@ class Table(_PandasConvertible):
     """
     schema: Schema
     column_names: list[str]
+    num_columns: int
 
     def __len__(self) -> int:
         ...
@@ -146,7 +147,10 @@ class Table(_PandasConvertible):
     def add_column(self, i: int, field_: str | Field, column) -> Table:
         ...
 
-    def append_column(self, field_: str | Field, column) -> Table:
+    def append_column(self, field: str | Field, column) -> Table:
+        ...
+
+    def column(self, i: int | str) -> PaArray:
         ...
 
     @classmethod
@@ -168,6 +172,9 @@ class Table(_PandasConvertible):
         ...
 
     def group_by(self, keys: str | list[str]) -> TableGroupBy:
+        ...
+
+    def replace_schema_metadata(self, metadata: dict | None = None) -> Table:
         ...
 
 
