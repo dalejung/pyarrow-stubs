@@ -12,7 +12,7 @@ from .field import Field
 from .compute import CastOptions
 
 
-class Table(_PandasConvertible):
+class Table(_PandasConvertible[pd.DataFrame]):
     """
     Table()
 
@@ -128,6 +128,7 @@ class Table(_PandasConvertible):
     schema: Schema
     column_names: list[str]
     num_columns: int
+    columns: list[PaArray]
 
     def __len__(self) -> int:
         ...

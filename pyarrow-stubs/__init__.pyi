@@ -1,4 +1,5 @@
 from collections.abc import Mapping
+from typing import overload
 
 from .lib import (
     _Weakrefable as _Weakrefable,
@@ -15,6 +16,8 @@ from .array import (
 )
 from .struct import (
     StructArray as StructArray,
+    struct as struct,
+    StructType as StructType,
 )
 from .schema import (
     schema as schema,
@@ -593,41 +596,6 @@ class Time32Scalar(Scalar):
     ...
 
 
-class StructType(DataType):
-    """
-    Concrete class for struct data types.
-
-        ``StructType`` supports direct indexing using ``[...]`` (implemented via
-        ``__getitem__``) to access its fields.
-        It will return the struct field with the given index or name.
-
-        Examples
-        --------
-        >>> import pyarrow as pa
-
-        Accessing fields using direct indexing:
-
-        >>> struct_type = pa.struct({'x': pa.int32(), 'y': pa.string()})
-        >>> struct_type[0]
-        pyarrow.Field<x: int32>
-        >>> struct_type['y']
-        pyarrow.Field<y: string>
-
-        Accessing fields using ``field()``:
-
-        >>> struct_type.field(1)
-        pyarrow.Field<y: string>
-        >>> struct_type.field('x')
-        pyarrow.Field<x: int32>
-
-        # Creating a schema from the struct type's fields:
-        >>> pa.schema(list(struct_type))
-        x: int32
-        y: string
-    """
-    ...
-
-
 class BaseExtensionType(DataType):
     """
     Concrete base class for extension types.
@@ -1198,15 +1166,41 @@ def allocate_buffer(size: int, memory_pool: MemoryPool | None = None, resizable=
     """
 
 
+@overload
 def array(
-        obj,
-        type=None,
-        mask=None,
-        size=None,
-        from_pandas=None,
-        safe: bool = True,
-        memory_pool: MemoryPool | None = None
+    obj,
+    type: StructType,
+    mask=...,
+    size=...,
+    from_pandas=...,
+    safe: bool = True,
+    memory_pool: MemoryPool | None = None
+) -> StructArray:
+    ...
+
+
+@overload
+def array(
+    obj,
+    type: DataType | None = None,
+    mask=...,
+    size=...,
+    from_pandas=...,
+    safe: bool = True,
+    memory_pool: MemoryPool | None = None
 ) -> Array:
+    ...
+
+
+def array(
+    obj,
+    type: DataType | None = None,
+    mask=None,
+    size=None,
+    from_pandas=None,
+    safe: bool = True,
+    memory_pool: MemoryPool | None = None
+) -> Array | StructArray:
     """
     Create pyarrow.Array instance from a Python object.
 
@@ -2775,42 +2769,6 @@ def string_to_tzinfo(name):
         -------
           tz : datetime.tzinfo
             Time zone object
-    """
-
-
-def struct(fields):
-    """
-    Create StructType instance from fields.
-
-        A struct is a nested type parameterized by an ordered sequence of types
-        (which can all be distinct), called its fields.
-
-        Parameters
-        ----------
-        fields : iterable of Fields or tuples, or mapping of strings to DataTypes
-            Each field must have a UTF8-encoded name, and these field names are
-            part of the type metadata.
-
-        Examples
-        --------
-        >>> import pyarrow as pa
-        >>> fields = [
-        ...     ('f1', pa.int32()),
-        ...     ('f2', pa.string()),
-        ... ]
-        >>> struct_type = pa.struct(fields)
-        >>> struct_type
-        StructType(struct<f1: int32, f2: string>)
-        >>> fields = [
-        ...     pa.field('f1', pa.int32()),
-        ...     pa.field('f2', pa.string(), nullable=False),
-        ... ]
-        >>> pa.struct(fields)
-        StructType(struct<f1: int32, f2: string not null>)
-
-        Returns
-        -------
-        type : DataType
     """
 
 

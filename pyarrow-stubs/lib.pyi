@@ -1,8 +1,17 @@
+from typing import (
+    TypeVar,
+    Generic,
+)
+
+
 class _Weakrefable():
     ...
 
 
-class _PandasConvertible(_Weakrefable):
+T = TypeVar('T')
+
+
+class _PandasConvertible(Generic[T], _Weakrefable):
     def to_pandas(
         self,
         memory_pool=...,
@@ -19,7 +28,7 @@ class _PandasConvertible(_Weakrefable):
             split_blocks=...,
             self_destruct=...,
             types_mapper=...
-    ):
+    ) -> T:
         ...
 
 
