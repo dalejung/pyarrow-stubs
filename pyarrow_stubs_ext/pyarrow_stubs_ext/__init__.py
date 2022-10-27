@@ -4,7 +4,8 @@ from .pa_array_types import (
     PaArray as PaArray,
     PaDataT as PaDataT,
     PaArrayT as PaArrayT,
-    StructArrayOrChunk as StructArrayOrChunk,
+    PaStructArray as PaStructArray,
+    PaChunkedStructArray as PaChunkedStructArray,
 )
 
 if TYPE_CHECKING:

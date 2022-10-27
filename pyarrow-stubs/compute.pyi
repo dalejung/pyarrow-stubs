@@ -1,10 +1,13 @@
 # pyright: reportInvalidStubStatement = false
+from typing import overload
 from pyarrow_stubs_ext import (
     PaArrayT,
     PaDataT,
     PaArray,
-    StructArrayOrChunk,
+    PaStructArray,
+    PaChunkedStructArray,
 )
+from .array import Array, ChunkedArray
 from .struct import (
     StructArray as StructArray,
 )
@@ -1931,6 +1934,30 @@ def equal(x, y, /, *, memory_pool=None):
     """
 
 
+@overload
+def extract_regex(
+    strings: ChunkedArray,
+    /,
+    pattern,
+    *,
+    options=...,
+    memory_pool=...
+) -> PaChunkedStructArray:
+    ...
+
+
+@overload
+def extract_regex(
+    strings: Array,
+    /,
+    pattern,
+    *,
+    options=...,
+    memory_pool=...
+) -> StructArray:
+    ...
+
+
 def extract_regex(
     strings: PaArray,
     /,
@@ -1938,7 +1965,7 @@ def extract_regex(
     *,
     options=None,
     memory_pool=None
-) -> StructArray:
+) -> StructArray | PaChunkedStructArray:
     """
     Extract substrings captured by a regex pattern.
 
@@ -4470,14 +4497,38 @@ def strptime(strings, /, format, unit, error_is_null=False, *, options=None, mem
     """
 
 
+@overload
 def struct_field(
-    values: StructArrayOrChunk,
+    values: StructArray,
     /,
     indices,
     *,
+    options=...,
+    memory_pool=...
+) -> Array:
+    ...
+
+
+@overload
+def struct_field(
+    values: PaChunkedStructArray,
+    /,
+    indices,
+    *,
+    options=...,
+    memory_pool=...
+) -> ChunkedArray:   # NOTE: Default to ChunkedArray[Array, DataType]?
+    ...
+
+
+def struct_field(
+    values: PaStructArray,
+    /,
+    indices: list[int],
+    *,
     options=None,
     memory_pool=None
-) -> PaArray:
+) -> Array | PaChunkedStructArray:
     """
     Extract children of a struct or union by index.
 
