@@ -1,5 +1,6 @@
 from .lib import (
-    _Weakrefable as _Weakrefable,
+    _Weakrefable,
+    DataType,
 )
 
 
@@ -13,4 +14,7 @@ class Field(_Weakrefable):
         -----
         Do not use this class's constructor directly; use pyarrow.field
     """
-    ...
+    name: str
+    type: DataType
+    nullable: bool = True
+    metadata: dict | None = None
