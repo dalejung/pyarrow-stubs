@@ -178,6 +178,9 @@ class Table(_PandasConvertible[pd.DataFrame]):
     def replace_schema_metadata(self, metadata: dict | None = None) -> Table:
         ...
 
+    def field(self, i: int | str) -> Field:
+        ...
+
 
 class TableGroupBy():
     """

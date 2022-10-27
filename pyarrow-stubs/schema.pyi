@@ -1,6 +1,9 @@
+from collections.abc import Iterator
+
 from .lib import (
     _Weakrefable as _Weakrefable,
 )
+from .field import Field
 
 
 class Schema(_Weakrefable):
@@ -49,7 +52,7 @@ class Schema(_Weakrefable):
     def with_metadata(self, metadata: dict):
         ...
 
-    def __iter__(self):
+    def __iter__(self) -> Iterator[Field]:
         ...
 
     def __len__(self) -> int:

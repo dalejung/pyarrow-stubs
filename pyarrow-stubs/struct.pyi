@@ -1,6 +1,10 @@
+from collections.abc import Iterator
+
+from pyarrow_stubs_ext import PaArray
 from .lib import (
     DataType as DataType,
 )
+from .field import Field
 from .array import Array, BooleanArray
 
 
@@ -36,7 +40,11 @@ class StructType(DataType):
         x: int32
         y: string
     """
-    ...
+    def get_field_index(self, name: str) -> int:
+        ...
+
+    def __iter__(self) -> Iterator[Field]:
+        ...
 
 
 def struct(fields) -> StructType:
@@ -79,8 +87,10 @@ class StructArray(Array):
     """
     Concrete class for Arrow arrays of a struct data type.
     """
+    type: StructType
+
     def is_valid(self) -> BooleanArray:
         ...
 
-    def field(self, index: int | str) -> Array:
+    def field(self, index: int | str) -> PaArray:
         ...

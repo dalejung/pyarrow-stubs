@@ -13,6 +13,7 @@ from .table import (
 from .array import (
     Array as Array,
     ChunkedArray as ChunkedArray,
+    ListArray as ListArray,
 )
 from .struct import (
     StructArray as StructArray,
@@ -2109,7 +2110,7 @@ def large_utf8():
     """
 
 
-def list_(value_type, list_size: int = -1):
+def list_(value_type, list_size: int = -1) -> ListType:
     """
     Create ListType instance from child data type or field.
 
@@ -2940,7 +2941,7 @@ def time64(unit):
     """
 
 
-def timestamp(unit, tz=None):
+def timestamp(unit, tz=None) -> TimestampType:
     """
     Create instance of timestamp type with resolution and optional time zone.
 
