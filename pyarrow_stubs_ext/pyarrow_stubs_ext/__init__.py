@@ -6,9 +6,6 @@ from .pa_array_types import (
     PaArrayT as PaArrayT,
     StructArrayOrChunk as StructArrayOrChunk,
 )
-from .array_common import (
-    ChunkedArrayT as ChunkedArrayT,
-)
 
 if TYPE_CHECKING:
     from .array_common import (

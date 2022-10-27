@@ -8,9 +8,6 @@ from pyarrow_stubs_ext import (
 from .struct import (
     StructArray as StructArray,
 )
-from .array import (
-    ChunkedArray as ChunkedArray,
-)
 
 _OptionsClassDoc = ...
 

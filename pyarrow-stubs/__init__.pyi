@@ -1,5 +1,5 @@
 from collections.abc import Mapping
-from typing import overload
+from typing import overload, TypeVar, Literal, Any
 
 from .lib import (
     _Weakrefable as _Weakrefable,
@@ -1354,7 +1354,25 @@ def bool_():
     """
 
 
-def chunked_array(arrays, type=None) -> ChunkedArray:
+DT = TypeVar('DT')
+
+
+@overload
+def chunked_array(arrays, type: StructType) -> ChunkedArray[StructArray, StructType]:
+    ...
+
+
+@overload
+def chunked_array(arrays, type: ListType) -> ChunkedArray[ListArray, ListType]:
+    ...
+
+
+@overload
+def chunked_array(arrays, type: None = None) -> ChunkedArray[Array, DataType]:
+    ...
+
+
+def chunked_array(arrays, type: DT | None = None) -> ChunkedArray[Array, DT]:
     """
     Construct chunked array from list of array-like objects
 

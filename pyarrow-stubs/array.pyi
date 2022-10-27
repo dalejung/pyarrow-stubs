@@ -1,11 +1,15 @@
+from typing import Generic, TypeVar
 from .lib import (
-    _PandasConvertible as _PandasConvertible
+    _PandasConvertible,
 )
 from pyarrow_stubs_ext import (
     CommonArray,
-    ChunkedArrayT as ChunkedArrayT,
     PaArrayT as PaArrayT,
 )
+
+
+T = TypeVar('T')
+DT = TypeVar('DT')
 
 
 class Array(_PandasConvertible, CommonArray):
@@ -18,7 +22,10 @@ class Array(_PandasConvertible, CommonArray):
 
 
 # Default to Array. Anything else needs to use ChunkedArrayT
-class ChunkedArray(ChunkedArrayT[Array]):
+# This is wonky due to not having https://peps.python.org/pep-0696/
+# Would like to default to Array, DataType but can't do that without changing
+# ChunkedArray from being a generic.
+class ChunkedArray(_PandasConvertible, CommonArray, Generic[T, DT]):
     """
     ChunkedArray()
 
@@ -56,6 +63,11 @@ class ChunkedArray(ChunkedArrayT[Array]):
         >>> isinstance(pa.chunked_array([[2, 2, 4], [4, 5, 100]]), pa.ChunkedArray)
         True
     """
+    chunks: list[T]
+    type: DT
+
+    def combine_chunks(self) -> T:
+        ...
 
 
 # Concrete Implementations

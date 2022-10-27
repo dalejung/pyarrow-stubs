@@ -6,7 +6,3 @@ from .pa_array_types import (
 
 class CommonArray:
     ...
-
-
-class ChunkedArrayT():
-    ...
