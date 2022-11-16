@@ -33,6 +33,12 @@ class CommonArray:
     def fill_null(self, fill_value) -> Self:
         ...
 
+    def unique(self) -> pa.Array:
+        ...
+
+    def drop_null(self) -> Self:
+        ...
+
     def cast(
         self,
         target_type: pa.DataType = ...,
