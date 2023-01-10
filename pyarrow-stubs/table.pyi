@@ -181,6 +181,19 @@ class Table(_PandasConvertible[pd.DataFrame]):
     def field(self, i: int | str) -> Field:
         ...
 
+    def join(
+        self,
+        right_table: Table,
+        keys: str | list[str],
+        right_keys: str | list[str] | None = None,
+        join_type: str = "left outer",
+        left_suffix: str | None = None,
+        right_suffix: str | None = None,
+        coalesce_keys: bool = True,
+        use_threads: bool = True
+    ):
+        ...
+
 
 class TableGroupBy():
     """
