@@ -181,6 +181,9 @@ class Table(_PandasConvertible[pd.DataFrame]):
     def field(self, i: int | str) -> Field:
         ...
 
+    def to_pydict(self) -> dict:
+        ...
+
     def join(
         self,
         right_table: Table,
