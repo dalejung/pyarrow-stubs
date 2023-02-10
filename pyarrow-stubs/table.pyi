@@ -1,6 +1,7 @@
 from __future__ import annotations
 import pandas as pd
 
+from typing import Iterator
 from typing_extensions import Self
 from pyarrow_stubs_ext import PaArray
 from .lib import (
@@ -131,6 +132,9 @@ class Table(_PandasConvertible[pd.DataFrame]):
     columns: list[PaArray]
 
     def __len__(self) -> int:
+        ...
+
+    def itercolumns(self) -> Iterator[PaArray]:
         ...
 
     def filter(self, mask, null_selection_behavior=...) -> Table:
