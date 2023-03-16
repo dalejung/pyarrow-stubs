@@ -236,4 +236,8 @@ class TableGroupBy():
         values_sum: [[3,7,5]]
         keys: [["a","b","c"]]
     """
-    ...
+
+    keys: list[str]
+
+    def aggregate(self, aggregations: list[tuple]):
+        ...
