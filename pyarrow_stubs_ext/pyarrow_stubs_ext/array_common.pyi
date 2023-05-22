@@ -49,3 +49,9 @@ class CommonArray:
 
     def __len__(self) -> int:
         ...
+
+    def is_valid(self) -> pa.BooleanArray:
+        ...
+
+    def is_null(self) -> pa.BooleanArray:
+        ...
