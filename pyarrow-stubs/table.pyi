@@ -201,6 +201,9 @@ class Table(_PandasConvertible[pd.DataFrame]):
     ):
         ...
 
+    def select(self, columns):
+        ...
+
 
 class TableGroupBy():
     """
