@@ -50,7 +50,7 @@ class Schema(_Weakrefable):
     names: list
     types: list
 
-    def with_metadata(self, metadata: dict):
+    def with_metadata(self, metadata: dict | None):
         ...
 
     def __iter__(self) -> Iterator[Field]:
