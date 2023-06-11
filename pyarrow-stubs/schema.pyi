@@ -45,7 +45,8 @@ class Schema(_Weakrefable):
         -- schema metadata --
         n_legs: 'Number of legs per animal'
     """
-    metadata: dict
+    metadata: dict | None
+    pandas_metadata: dict | None
     names: list
     types: list
 
