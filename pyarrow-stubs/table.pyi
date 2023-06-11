@@ -204,6 +204,9 @@ class Table(_PandasConvertible[pd.DataFrame]):
     def select(self, columns):
         ...
 
+    def drop_columns(self, columns: str | list[str]) -> Table:
+        ...
+
 
 class TableGroupBy():
     """
