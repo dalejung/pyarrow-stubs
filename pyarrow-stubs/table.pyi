@@ -1,7 +1,7 @@
 from __future__ import annotations
 import pandas as pd
 
-from typing import Iterator
+from typing import Iterator, Iterable
 from typing_extensions import Self
 from pyarrow_stubs_ext import PaArray
 from .lib import (
@@ -245,5 +245,5 @@ class TableGroupBy():
 
     keys: list[str]
 
-    def aggregate(self, aggregations: list[tuple]):
+    def aggregate(self, aggregations: Iterable[tuple]):
         ...
