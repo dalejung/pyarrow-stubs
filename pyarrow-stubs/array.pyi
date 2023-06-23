@@ -1,6 +1,11 @@
+from __future__ import annotations
 from typing import Generic, TypeVar
 from .lib import (
     _PandasConvertible,
+    DataType,
+)
+from .io import (
+    Buffer,
 )
 from pyarrow_stubs_ext import (
     CommonArray,
@@ -18,7 +23,19 @@ class Array(_PandasConvertible, CommonArray):
 
         The base class for all Arrow arrays.
     """
-    ...
+    def buffers(self) -> list[None | Buffer]:
+        ...
+
+    @staticmethod
+    def from_buffers(
+        type: DataType,
+        length: int,
+        buffers: list[Buffer | None],
+        null_count: int = -1,
+        offset: int = 0,
+        children: list[Array] | None = None,
+    ) -> Array:
+        ...
 
 
 # Default to Array. Anything else needs to use ChunkedArrayT

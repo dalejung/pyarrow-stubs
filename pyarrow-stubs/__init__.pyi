@@ -6,6 +6,9 @@ from .lib import (
     _PandasConvertible as _PandasConvertible,
     DataType as DataType,
 )
+from .io import (
+    Buffer as Buffer,
+)
 from .table import (
     Table as Table,
     TableGroupBy as TableGroupBy,
@@ -281,18 +284,6 @@ class LargeListType(DataType):
     """
     Concrete class for large list data types
         (like ListType, but with 64-bit offsets).
-    """
-    ...
-
-
-class Buffer(_Weakrefable):
-    """
-    Buffer()
-
-        The base class for all Arrow buffers.
-
-        A buffer represents a contiguous memory area.  Many buffers will own
-        their memory, though not all of them do.
     """
     ...
 
