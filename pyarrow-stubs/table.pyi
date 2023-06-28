@@ -155,6 +155,9 @@ class Table(_PandasConvertible[pd.DataFrame]):
     def append_column(self, field: str | Field, column) -> Table:
         ...
 
+    def rename_columns(self, names: list[str]) -> Table:
+        ...
+
     def column(self, i: int | str) -> PaArray:
         ...
 
