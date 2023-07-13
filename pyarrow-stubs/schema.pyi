@@ -62,6 +62,9 @@ class Schema(_Weakrefable):
     def to_string(self) -> str:
         ...
 
+    def field(self, i: str | int) -> Field:
+        ...
+
 
 def schema(fields, metadata=None):
     """
