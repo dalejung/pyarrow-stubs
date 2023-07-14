@@ -4,6 +4,7 @@ from .lib import (
     _Weakrefable as _Weakrefable,
 )
 from .field import Field
+from .table import Table
 
 
 class Schema(_Weakrefable):
@@ -63,6 +64,9 @@ class Schema(_Weakrefable):
         ...
 
     def field(self, i: str | int) -> Field:
+        ...
+
+    def empty_table(self) -> Table:
         ...
 
 
