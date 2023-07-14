@@ -55,3 +55,6 @@ class CommonArray:
 
     def is_null(self) -> pa.BooleanArray:
         ...
+
+    def equals(self, other: pa.Array) -> bool:
+        ...

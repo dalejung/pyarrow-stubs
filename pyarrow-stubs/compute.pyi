@@ -5616,3 +5616,7 @@ def years_between(start, end, /, *, memory_pool=None):
         If not passed, will allocate memory from the default memory pool.
 
     """
+
+
+def local_timestamp(values, /, *, memory_pool=None):
+    ...
