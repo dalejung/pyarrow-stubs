@@ -166,6 +166,10 @@ class Table(_PandasConvertible[pd.DataFrame]):
                     nthreads=..., columns=..., safe=...) -> Table:
         ...
 
+    @classmethod
+    def from_pylist(cls, mapping: list[dict], schema: Schema | None = None, metadata: dict | None = None) -> Table:
+        ...
+
     def to_pylist(self) -> list[dict]:
         ...
 
