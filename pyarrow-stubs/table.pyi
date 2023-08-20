@@ -214,6 +214,9 @@ class Table(_PandasConvertible[pd.DataFrame]):
     def drop_columns(self, columns: str | list[str]) -> Table:
         ...
 
+    def equals(self, other: Table, check_metadata: bool = False) -> bool:
+        ...
+
 
 class TableGroupBy():
     """
