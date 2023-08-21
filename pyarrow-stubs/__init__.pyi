@@ -20,6 +20,7 @@ from .array import (
 from .list import (
     ListArray as ListArray,
     ListType as ListType,
+    ListScalar as ListScalar,
 )
 from .struct import (
     StructArray as StructArray,
@@ -958,13 +959,6 @@ class BinaryScalar(Scalar):
 class DurationScalar(Scalar):
     """
     Concrete class for duration scalars.
-    """
-    ...
-
-
-class ListScalar(Scalar):
-    """
-    Concrete class for list-like scalars.
     """
     ...
 
