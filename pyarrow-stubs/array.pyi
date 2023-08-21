@@ -216,16 +216,6 @@ class LargeStringArray(Array):
     """
 
 
-class BaseListArray(Array):
-    ...
-
-
-class ListArray(BaseListArray):
-    """
-    Concrete class for Arrow arrays of a list data type.
-    """
-
-
 class HalfFloatArray(FloatingPointArray):
     """
     Concrete class for Arrow arrays of float16 data type.

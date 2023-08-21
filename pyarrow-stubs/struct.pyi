@@ -46,6 +46,12 @@ class StructType(DataType):
     def __iter__(self) -> Iterator[Field]:
         ...
 
+    def __getitem__(self, key: int | str) -> Field:
+        ...
+
+    def field(self, key: int | str) -> Field:
+        ...
+
 
 def struct(fields) -> StructType:
     """
@@ -93,4 +99,7 @@ class StructArray(Array):
         ...
 
     def field(self, index: int | str) -> PaArray:
+        ...
+
+    def flatten(self) -> list[PaArray]:
         ...

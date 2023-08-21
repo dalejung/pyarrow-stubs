@@ -16,7 +16,10 @@ from .table import (
 from .array import (
     Array as Array,
     ChunkedArray as ChunkedArray,
+)
+from .list import (
     ListArray as ListArray,
+    ListType as ListType,
 )
 from .struct import (
     StructArray as StructArray,
@@ -336,13 +339,6 @@ class NativeFile(_Weakrefable):
         Be aware that there are subtle differences with regular Python files,
         e.g. destroying a writable Arrow stream without closing it explicitly
         will not flush any pending data.
-    """
-    ...
-
-
-class ListType(DataType):
-    """
-    Concrete class for list data types.
     """
     ...
 
