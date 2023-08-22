@@ -12,4 +12,4 @@ class Buffer(_Weakrefable):
         A buffer represents a contiguous memory area.  Many buffers will own
         their memory, though not all of them do.
     """
-    ...
+    address: int

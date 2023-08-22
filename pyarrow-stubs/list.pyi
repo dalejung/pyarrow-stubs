@@ -30,6 +30,7 @@ class ListArray(BaseListArray):
     Concrete class for Arrow arrays of a list data type.
     """
     type: ListType
+    values: Array
 
     def __getitem__(self, key) -> ListScalar:
         ...

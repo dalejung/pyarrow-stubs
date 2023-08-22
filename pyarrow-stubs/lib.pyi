@@ -40,4 +40,5 @@ class DataType(_Weakrefable):
 
         Each data type is an *instance* of this class.
     """
-    ...
+    num_buffers: int
+    num_fields: int
