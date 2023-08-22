@@ -4,6 +4,9 @@ import pandas as pd
 from typing import Iterator, Iterable
 from typing_extensions import Self
 from pyarrow_stubs_ext import PaArray
+from pyarrow import RecordBatch
+
+from pyarrow.array import ChunkedArray
 from .lib import (
     _Weakrefable as _Weakrefable,
     _PandasConvertible as _PandasConvertible
@@ -146,7 +149,7 @@ class Table(_PandasConvertible[pd.DataFrame]):
     def sort_by(self, sorting: str | list[tuple[str, str]]) -> Table:
         ...
 
-    def __getitem__(self, key) -> PaArray:
+    def __getitem__(self, key) -> ChunkedArray:
         ...
 
     def add_column(self, i: int, field_: str | Field, column) -> Table:
@@ -171,6 +174,12 @@ class Table(_PandasConvertible[pd.DataFrame]):
         ...
 
     def to_pylist(self) -> list[dict]:
+        ...
+
+    def to_batches(self) -> list[RecordBatch]:
+        ...
+
+    def from_batches(self, batches: Iterable[RecordBatch], schema=Schema) -> Table:
         ...
 
     def drop(self, columns: list[str]) -> Self:

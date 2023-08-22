@@ -22,7 +22,8 @@ class ListScalar(Scalar):
 
 
 class BaseListArray(Array):
-    ...
+    def flatten(self) -> Array:
+        ...
 
 
 class ListArray(BaseListArray):
@@ -31,6 +32,21 @@ class ListArray(BaseListArray):
     """
     type: ListType
     values: Array
+    offsets: Array
 
     def __getitem__(self, key) -> ListScalar:
         ...
+
+
+class MapArray(ListArray):
+    """
+    Concrete class for Arrow arrays of a map data type.
+    """
+
+
+class LargeListArray(BaseListArray):
+    """
+    Concrete class for Arrow arrays of a large list data type.
+
+        Identical to ListArray, but 64-bit offsets.
+    """

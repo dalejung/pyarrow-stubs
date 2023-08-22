@@ -86,6 +86,9 @@ class ChunkedArray(_PandasConvertible, CommonArray, Generic[T, DT]):
     def combine_chunks(self) -> T:
         ...
 
+    def iterchunks(self) -> T:
+        ...
+
 
 # Concrete Implementations
 
@@ -252,14 +255,6 @@ class Int64Array(IntegerArray):
     """
 
 
-class LargeListArray(BaseListArray):
-    """
-    Concrete class for Arrow arrays of a large list data type.
-
-        Identical to ListArray, but 64-bit offsets.
-    """
-
-
 class UInt64Array(IntegerArray):
     """
     Concrete class for Arrow arrays of uint64 data type.
@@ -299,10 +294,4 @@ class UInt32Array(IntegerArray):
 class UInt16Array(IntegerArray):
     """
     Concrete class for Arrow arrays of uint16 data type.
-    """
-
-
-class MapArray(ListArray):
-    """
-    Concrete class for Arrow arrays of a map data type.
     """
