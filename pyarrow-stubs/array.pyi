@@ -89,6 +89,9 @@ class ChunkedArray(_PandasConvertible, CommonArray, Generic[T, DT]):
     def iterchunks(self) -> T:
         ...
 
+    def equals(self, other: ChunkedArray | Array):
+        ...
+
 
 # Concrete Implementations
 
