@@ -1,3 +1,4 @@
+from __future__ import annotations
 from collections.abc import Iterator
 
 from .lib import (
@@ -51,7 +52,10 @@ class Schema(_Weakrefable):
     names: list
     types: list
 
-    def with_metadata(self, metadata: dict | None):
+    def with_metadata(self, metadata: dict | None) -> Schema:
+        ...
+
+    def remove_metadata(self) -> Schema:
         ...
 
     def __iter__(self) -> Iterator[Field]:
