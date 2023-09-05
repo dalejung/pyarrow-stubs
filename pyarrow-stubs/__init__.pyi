@@ -16,6 +16,7 @@ from .table import (
 from .array import (
     Array as Array,
     ChunkedArray as ChunkedArray,
+    DictionaryArray as DictionaryArray,
 )
 from .list import (
     ListArray as ListArray,

@@ -58,3 +58,6 @@ class CommonArray:
 
     def equals(self, other: pa.Array) -> bool:
         ...
+
+    def dictionary_encode(self, null_encoding: str = ...) -> pa.DictionaryArray:
+        ...

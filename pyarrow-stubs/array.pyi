@@ -172,6 +172,8 @@ class DictionaryArray(Array):
     """
     Concrete class for dictionary-encoded Arrow arrays.
     """
+    def dictionary_decode(self):
+        ...
 
 
 class BinaryArray(Array):
