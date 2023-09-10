@@ -922,7 +922,8 @@ class RecordBatch(_PandasConvertible):
         n_legs: int64
         animals: string
     """
-    ...
+    def __getitem__(self, key) -> Array:
+        ...
 
 
 class Int32Scalar(Scalar):
